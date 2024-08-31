@@ -1,0 +1,45 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static "css/login.css" %}">{% endblock styles %}
+{% block content %}
+    <div id="main">
+        <form method="post" action="{% url "user_login" %}" class="login not-used">
+            {% csrf_token %}
+            <h3>Login</h3><br>
+            <img src="images/icons/apps.svg" alt=""><br><br>
+            <label for="">Username</label>
+            <input type="text" name="username">
+            <label for="">Password</label>
+            <input type="password" name="password" id="">
+            <button>Login</button>
+        </form>
+        <form method="post" action="{% url "user_signup" %}" class="signup">
+            {% csrf_token %}
+            <h3>Sign up</h3><br>
+            <img src="images/icons/settings.svg" alt=""><br><br>
+            <label for="">First name</label>
+            <input type="text" name="firstname" id="">
+            <label for="">Last name</label>
+            <input type="text" name="lastname" id="">
+            <label for="">Email</label>
+            <input type="text" name="email">
+            <label for="">Username</label>
+            <input type="text" name="username">
+            <label for="">Password</label>
+            <input type="password" name="password" id="" value="">
+            <button>Signup</button>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector(".login").addEventListener("click", () => {
+            document.querySelector(".signup").classList.remove("not-used");
+            document.querySelector(".login").classList.add("not-used");
+        })
+        document.querySelector(".signup").addEventListener("click", () => {
+            document.querySelector(".login").classList.remove("not-used");
+            document.querySelector(".signup").classList.add("not-used");
+        })
+    </script>
+{% endblock content %}

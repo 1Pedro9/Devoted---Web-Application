@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devoted</title>
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    {% block styles %}{% endblock styles %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <section id="navbar">
+        <h1 title="Devoted">
+            <!-- D<span>e</span>v<span>o</span>t<span>e</span>d -->
+            <div>Devoted</div>
+            <span>Devoted</span>
+        </h1>
+
+    </section>
+    <section id="sidebar">
+        <div onclick="window.location.href='{% url "dashboard" %}'"><img src="{% static "images/icons/apps.svg" %}" alt="dashboard"></div>
+        <div onclick="window.location.href='{% url "budget" %}'"><img src="{% static "images/icons/folder.svg" %}" alt=""></div>
+        <div onclick="window.location.href='{% url "journal" %}'"><img src="{% static "images/icons/stats.svg" %}" alt=""></div>
+        <div onclick="window.location.href='{% url "assets" %}'"><img src="{% static "images/icons/chart-pie-alt.svg" %}" alt=""></div>
+        <div onclick="window.location.href='{% url "index" %}'"><img src="{% static "images/icons/file-invoice-dollar.svg" %}" alt=""></div>
+        <div onclick="window.location.href='{% url "notifications" %}'"><img
+                src="{% static "images/icons/bell-notification-social-media.svg" %}" alt=""></div>
+        <div><img src="{% static "images/icons/comment-info.svg" %}" alt=""></div>
+        <div><img src="{% static "images/icons/sign-out-alt.svg" %}" alt=""></div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {% block content %}{% endblock content %}
+</body>
+
+</html>

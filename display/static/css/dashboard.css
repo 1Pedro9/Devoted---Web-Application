@@ -1,0 +1,251 @@
+#main {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 10%;
+    position: relative;
+    top: 120px;
+}
+
+.main-left {
+    width: 60%;
+
+}
+
+.account-values {
+    display: flex;
+    justify-content: left;
+    max-width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.account-values::-webkit-scrollbar {
+    height: 20px;
+    display: none;
+}
+
+.account-values li {
+    width: 250px;
+    margin-right: 35px;
+    flex-shrink: 0;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 20px;
+    color: #ddd;
+    background: linear-gradient(to left, #C6F28F30, #BA8FF230)
+}
+
+.account-values h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    /* border-bottom: 1px solid white; */
+}
+
+.account-values img {
+    width: 50%;
+    margin-bottom: 10px;
+    float: inline-end;
+    margin-right: 20px;
+}
+
+.account-values span {
+    float: right;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.account-values-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-values-container button {
+    font-size: 3rem;
+    margin-left: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* --- Total Account Value Section --- */
+
+.total-account {
+    position: relative;
+    left: -40px;
+    margin-top: 50px;
+}
+
+.total-account span {
+    /* color: #888; */
+    color: #ddd;
+    margin-left: 40px;
+}
+
+.total-account h4 {
+    font-weight: bolder;
+    font-size: 2rem;
+    margin-left: 40px;
+}
+
+.total-account canvas {
+    width: 100%;
+    height: 250px;
+    border-bottom: 1px solid white;
+}
+
+.graph-container {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    width: 105%;
+    position: relative;
+    left: -20px;
+}
+
+.graph-container p {
+    transform: rotate(270deg);
+    font-size: 1.5rem;
+    width: 40px;
+    /* color: #888; */
+    color: #ddd;
+}
+
+.timeline {
+    width: 100%;
+    margin-left: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 42px;
+    padding: 10px 10px;
+}
+
+.timeline li {
+    text-align: left;
+    transform: rotate(45deg);
+    /* color: #888; */
+    color: #ddd;
+}
+
+.amounts li {
+    columns: #ddd;
+    margin-bottom: 20px;
+    margin-right: 10px;
+
+}
+
+.main-right {
+    width: 35%;
+}
+
+.cards {
+    display: block;
+}
+
+.credit-card {
+    position: relative;
+    z-index: 6;
+    width: 320px;
+    height: 200px;
+    /* background: linear-gradient(135deg, #6a1b9a 0%, #BA8FF2 100%); */
+    /* background: linear-gradient(135deg, #0f9d58 0%, #C6F28F 100%); */
+    /* background: linear-gradient(135deg, #1e5799 0%, #7db9e8 100%); */
+    border-radius: 15px;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid white;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin-top: -200px;
+}
+
+.card-1 {
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: linear-gradient(135deg, #1e5799 0%, #7db9e8 100%);
+}
+
+.card-2 {
+    background: linear-gradient(135deg, #6a1b9a 0%, #BA8FF2 100%);
+    margin-top: -200px;
+    left: 30px;
+    z-index: 2;
+}
+
+.card-3 {
+    margin-top: -200px;
+    left: 60px;
+    z-index: 1;
+    background: linear-gradient(135deg, #0f9d58 0%, #C6F28F 100%);
+}
+
+.chosen-card {
+    z-index: 4;
+    margin-top: 0;
+}
+
+.credit-card__logo {
+    font-size: 1.5em;
+    text-align: right;
+}
+
+.credit-card__number {
+    font-size: 1.4em;
+    letter-spacing: 2px;
+    margin: 20px 0;
+}
+
+.credit-card__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.credit-card__info__name {
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+
+.credit-card__info__expiry {
+    font-size: 1.2em;
+}
+
+
+/* --- Recent List --- */
+
+
+.recent-list li {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    width: 90%;
+    text-align: left;
+}
+
+.recent-icon {
+    width: 50px;
+    background: #015e5c;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.recent-list-container p {
+    font-size: 1.2rem;
+}
+
+.recent-list-container span {
+    font-size: 0.9rem;
+    color: #ddd;
+
+}

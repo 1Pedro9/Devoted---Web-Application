@@ -1,0 +1,226 @@
+#main {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 10%;
+    position: relative;
+    top: 120px;
+}
+
+.main-left {
+    width: 60%;
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.main-left::-webkit-scrollbar {
+    display: none;
+}
+
+.main-right {
+    width: 25%;
+}
+
+/* --- Budget Navigation ---- */
+.budget_nav {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.budget_nav li {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.budget_nav button {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    color: #ddd;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.budget_nav button:hover {
+    border-bottom: 1px solid gold;
+    transition: all 0.5s ease;
+}
+
+.budget_nav .chosen-nav {
+    color: gold;
+}
+
+
+.not-budget {
+    display: none;
+}
+
+/* --- Stocks --- */
+.stock-lists {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.stock-lists li {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: linear-gradient(to right, #4fa9ee80, #d641e630);
+    padding: 5px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.stock-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.stock-list li {
+    display: grid;
+    grid-template-columns: 50px 1fr 150px 150px 20px;
+    align-items: center;
+    background: #015e5c;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+    text-align: right;
+    cursor: pointer;
+}
+
+.stock-list .chosen-li {
+    background: #029896;
+}
+
+.stock-list canvas {
+    grid-column: 1;
+}
+
+.stock-list h4 {
+    grid-column: 2;
+    margin: 0;
+    margin-left: 20px;
+    text-align: left;
+    color: color;
+}
+
+.stock-list .buy-distance {
+    grid-column: 3;
+    color: #ff9800;
+    font-weight: bold;
+    text-align: right;
+}
+
+.stock-list .stock-price {
+    grid-column: 4;
+    color: #4caf50;
+    font-weight: bold;
+    text-align: right;
+}
+
+.stock-list .material-symbols-outlined {
+    grid-column: 5;
+    cursor: pointer;
+    color: #888;
+}
+
+/* --- Main right --- */
+.main-right {
+    margin-right: 10%;
+    margin-top: 10px;
+}
+
+.main-right h3 {
+    text-align: center;
+    font-size: 2rem;
+    border-bottom: 1px solid white;
+}
+
+.main-right label {
+    font-size: 1.2rem;
+    color: #ddd;
+    float: left;
+}
+
+.main-right input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    text-align: left;
+    border: 1px solid white;
+    margin-top: -15px;
+    padding: 5px;
+    width: 100%;
+    outline: none;
+}
+
+/* .main-right input[type="number"] */
+
+.main-right input[type="checkbox"] {
+    margin-top: -10px;
+    width: auto;
+    margin-left: 10px;
+}
+
+.overview,
+.add,
+.edit {
+    background: #024846;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.overview button,
+.add button,
+.edit button {
+    margin-top: 20px;
+    width: 150px;
+    color: white;
+    font-size: 1.2rem;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background: #4caf4f89;
+    margin-left: 10px;
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+    cursor: pointer;
+}
+
+.edit-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-container button {
+    margin-left: 0;
+}
+
+.edit input {
+    background: #ddd;
+    border-radius: 2px;
+    width: 100%;
+    color: black;
+}

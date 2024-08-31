@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static "css/notifications.css" %}">{% endblock styles %}
+{% block content %}
+    <main id="main">
+        <div class="main-left">
+            <h3>Personal Reminder</h3>
+            <hr>
+            <ul>
+                <li>
+                    <input type="checkbox">
+                    <p>Do my CRJ and CPJ</p>
+                </li>
+                <li>
+                    <input type="checkbox" checked="true">
+                    <input type="text" placeholder="New Reminder">
+                </li>
+            </ul>
+        </div>
+        <div class="main-middle">
+            <h3>Notifications</h3>
+            <hr>
+            <ul>
+                <li>
+                    <input type="checkbox">
+                    <p>You haven't visited in a while. Where have you been</p>
+                </li>
+
+            </ul>
+        </div>
+        <div class="main-right">
+            <h3>News</h3>
+            <hr>
+            <ul>
+                <li>
+                    <input type="checkbox">
+                    <p>Remgro (JSE: REM) has gone up with 20%, maybe it is a good idea to start investing into that
+                        stock sir.</p>
+                </li>
+
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        for (var i = 0; i < 10; i++) {
+            document.querySelector(".main-right ul").innerHTML += "<li><input type=\"checkbox\"><p>Remgro (JSE: REM) has gone up with 20%, maybe it is a good idea to start investing into that stock sir.</p></li>"
+        }
+
+
+    </script>
+{% endblock content %}

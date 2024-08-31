@@ -1,0 +1,446 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static "css/journal.css" %}">{% endblock styles %}
+{% block content %}
+    <main id="main">
+        <div class="main-left">
+            <nav class="budget_nav">
+                <li><button class="chosen-nav">General Ledger</button></li>
+                <li><button>CRJ</button></li>
+                <li><button>CPJ</button></li>
+            </nav><br>
+            <hr><br><br>
+            <div class="gl">
+                <table>
+                    <thead>
+                        <tr class="header-rows">
+                            <td class="year">Year</td>
+                            <td class="month">Month</td>
+                            <td class="day">Day</td>
+                            <td class="details">Details</td>
+                            <td class="amount">Amount</td>
+                            <td class="empty-column"></td>
+                            <td class="year">Year</td>
+                            <td class="month">Month</td>
+                            <td class="day">Day</td>
+                            <td class="details">Details</td>
+                            <td class="amount">Amount</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in gl %}
+                            {% if i.is_pos == 1 %}
+                                <tr class="main-rows bf">
+                                    <td class="year" tabindex="0" contenteditable="true">{{i.prev|date:"Y"}}</td>
+                                    <td class="month" tabindex="0" contenteditable="true">{{i.prev|date:"m"}}</td>
+                                    <td class="day" tabindex="0" contenteditable="true">01</td>
+                                    <td class="details" tabindex="0" contenteditable="true">Balance B/F</td>
+                                    <td class="amount" tabindex="0" contenteditable="true">{{i.bf|floatformat:2}}</td>
+                                    <td class="empty-column"></td>
+                                    <td class="year" tabindex="0" contenteditable="true"></td>
+                                    <td class="month" tabindex="0" contenteditable="true"></td>
+                                    <td class="day" tabindex="0" contenteditable="true"></td>
+                                    <td class="details" tabindex="0" contenteditable="true"></td>
+                                    <td class="amount" tabindex="0" contenteditable="true"></td>
+                                </tr>
+                            {% else %}
+                                <tr class="main-rows bf">
+                                    <td class="year" tabindex="0" contenteditable="true"></td>
+                                    <td class="month" tabindex="0" contenteditable="true"></td>
+                                    <td class="day" tabindex="0" contenteditable="true"></td>
+                                    <td class="details" tabindex="0" contenteditable="true"></td>
+                                    <td class="amount" tabindex="0" contenteditable="true"></td>
+                                    <td class="empty-column"></td>
+                                    <td class="year" tabindex="0" contenteditable="true">{{i.prev|date:"Y"}}</td>
+                                    <td class="month" tabindex="0" contenteditable="true">{{i.prev|date:"m"}}</td>
+                                    <td class="day" tabindex="0" contenteditable="true">01</td>
+                                    <td class="details" tabindex="0" contenteditable="true">Balance B/F</td>
+                                    <td class="amount" tabindex="0" contenteditable="true">{{i.bf|floatformat:2}}</td>
+                                </tr>
+                            {% endif %}
+                            <tr class="main-rows">
+                                <td class="year" tabindex="0" contenteditable="true">{{i.prev|date:"Y"}}</td>
+                                <td class="month" tabindex="0" contenteditable="true">{{i.prev|date:"m"}}</td>
+                                <td class="day" tabindex="0" contenteditable="true">
+                                    {% if i.prev|date:"m" == "01" or i.prev|date:"m" == "03" or i.prev|date:"m" == "05" or i.prev|date:"m" == "07" or i.prev|date:"m" == "08" or i.prev|date:"m" == "10" or i.prev|date:"m" == "12" %}
+                                        31
+                                    {% elif i.prev|date:"m" == "02" %}
+                                        28
+                                    {% else %}
+                                        30
+                                    {% endif %}
+                                </td>
+                                <td class="details" tabindex="0" contenteditable="true">Total Income</td>
+                                <td class="amount" tabindex="0" contenteditable="true">{{i.income|floatformat:2}}</td>
+                                <td class="empty-column"></td>
+                                <td class="year" tabindex="0" contenteditable="true">{{i.prev|date:"Y"}}</td>
+                                <td class="month" tabindex="0" contenteditable="true">{{i.prev|date:"m"}}</td>
+                                <td class="day" tabindex="0" contenteditable="true">
+                                    {% if i.prev|date:"m" == "01" or i.prev|date:"m" == "03" or i.prev|date:"m" == "05" or i.prev|date:"m" == "07" or i.prev|date:"m" == "08" or i.prev|date:"m" == "10" or i.prev|date:"m" == "12" %}
+                                        31
+                                    {% elif i.prev|date:"m" == "02" %}
+                                        28
+                                    {% else %}
+                                        30
+                                    {% endif %}
+                                </td>
+                                <td class="details" tabindex="0" contenteditable="true">Total Expenses</td>
+                                <td class="amount" tabindex="0" contenteditable="true">{{i.expenses|floatformat:2}}</td>
+                            </tr>
+                            {% if i.cf_pos == 1 %}
+                                <tr class="main-rows">
+                                    <td class="year" tabindex="0" contenteditable="true"></td>
+                                    <td class="month" tabindex="0" contenteditable="true"></td>
+                                    <td class="day" tabindex="0" contenteditable="true"></td>
+                                    <td class="details" tabindex="0" contenteditable="true"></td>
+                                    <td class="amount" tabindex="0" contenteditable="true"></td>
+                                    <td class="empty-column"></td>
+                                    <td class="year" tabindex="0" contenteditable="true"></td>
+                                    <td class="month" tabindex="0" contenteditable="true"></td>
+                                    <td class="day" tabindex="0" contenteditable="true"></td>
+                                    <td class="details" tabindex="0" contenteditable="true">Balance C/F</td>
+                                    <td class="amount" tabindex="0" contenteditable="true">{{i.cf|floatformat:2}}</td>
+                                </tr>
+                            {% else %}
+                                <tr class="main-rows">
+                                    <td class="year" tabindex="0" contenteditable="true"></td>
+                                    <td class="month" tabindex="0" contenteditable="true"></td>
+                                    <td class="day" tabindex="0" contenteditable="true"></td>
+                                    <td class="details" tabindex="0" contenteditable="true">Balance C/F</td>
+                                    <td class="amount" tabindex="0" contenteditable="true">{{i.cf|floatformat:2}}</td>
+                                    <td class="empty-column"></td>
+                                    <td class="year" tabindex="0" contenteditable="true"></td>
+                                    <td class="month" tabindex="0" contenteditable="true"></td>
+                                    <td class="day" tabindex="0" contenteditable="true"></td>
+                                    <td class="details" tabindex="0" contenteditable="true"></td>
+                                    <td class="amount" tabindex="0" contenteditable="true"></td>
+                                </tr>
+                            {% endif %}
+                            <tr class="total-rows">
+                                <td class="year" tabindex="0" contenteditable="true"></td>
+                                <td class="month" tabindex="0" contenteditable="true"></td>
+                                <td class="day" tabindex="0" contenteditable="true"></td>
+                                <td class="details" tabindex="0" contenteditable="true"></td>
+                                <td class="amount" tabindex="0" contenteditable="true">{{i.total|floatformat:2}}</td>
+                                <td class="empty-column"></td>
+                                <td class="year" tabindex="0" contenteditable="true"></td>
+                                <td class="month" tabindex="0" contenteditable="true"></td>
+                                <td class="day" tabindex="0" contenteditable="true"></td>
+                                <td class="details" tabindex="0" contenteditable="true"></td>
+                                <td class="amount" tabindex="0" contenteditable="true">{{i.total|floatformat:2}}</td>
+                            </tr>
+                            <tr class="empty-row"><td></td><tr>
+                        {% endfor %}
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="journal not-budget crj">
+                <table>
+                    <thead>
+                        <tr class="header-rows">
+                            <td class="action"></td>
+                            <td class="year">Year</td>
+                            <td class="month">Month</td>
+                            <td class="day">Day</td>
+                            <td class="details">Details</td>
+                            <td class="empty-column"></td>
+                            <td class="amount">Amount</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in journal %}
+                            {% if i.journal == 'crj' %}
+                                {% if i.is_new == 1 %}
+                                    <tr class="add-rows">
+                                        <td class="action">+</td>
+                                        <td class="year" tabindex="0" contenteditable="true">{{i.prev|date:"Y"}}</td>
+                                        <td class="month" tabindex="0" contenteditable="true">{{i.prev|date:"m"}}</td>
+                                        <td class="day" tabindex="0" contenteditable="true">{{i.prev|date:"d"}}</td>
+                                        <td class="details" tabindex="0" contenteditable="true"></td>
+                                        <td class="empty-column"></td>
+                                        <td class="amount" tabindex="0" contenteditable="true"></td>
+                                    </tr>
+                                    <tr class="total-rows">
+                                        <td class="action"></td>
+                                        <td class="year" tabindex="0" contenteditable="false"></td>
+                                        <td class="month" tabindex="0" contenteditable="false"></td>
+                                        <td class="day" tabindex="0" contenteditable="false"></td>
+                                        <td class="details" tabindex="0" contenteditable="false"></td>
+                                        <td class="empty-column"></td>
+                                        <td class="amount" tabindex="0" contenteditable="false">{{i.income|floatformat:2}}</td>
+                                    </tr>
+                                    <tr class="empty-row">
+                                        <td></td>
+                                    </tr>
+                                {% endif %}
+                                <tr class="main-rows" id="{{i.journal_id}}">
+                                    <td class="action">--</td>
+                                    <td class="year" tabindex="0" contenteditable="true">{{i.date|date:"Y"}}</td>
+                                    <td class="month" tabindex="0" contenteditable="true">{{i.date|date:"m"}}</td>
+                                    <td class="day" tabindex="0" contenteditable="true">{{i.date|date:"d"}}</td>
+                                    <td class="details" tabindex="0" contenteditable="true">{{i.details}}</td>
+                                    <td class="empty-column"></td>
+                                    <td class="amount" tabindex="0" contenteditable="true">{{i.amount|floatformat:2}}</td>
+                                </tr>
+                                
+                            {% endif %}
+                            
+                        {% endfor %}
+                        
+                        
+                        <tr class="add-rows">
+                            <td class="action">+</td>
+                            <td class="year" tabindex="0" contenteditable="true">{% now "Y" %}</td>
+                            <td class="month" tabindex="0" contenteditable="true">{% now "m" %}</td>
+                            <td class="day" tabindex="0" contenteditable="true">{% now "d" %}</td>
+                            <td class="details" tabindex="0" contenteditable="true"></td>
+                            <td class="empty-column"></td>
+                            <td class="amount" tabindex="0" contenteditable="true"></td>
+                        </tr>
+                        <tr class="total-rows">
+                            <td class="action"></td>
+                            <td class="year" tabindex="0" contenteditable="false"></td>
+                            <td class="month" tabindex="0" contenteditable="false"></td>
+                            <td class="day" tabindex="0" contenteditable="false"></td>
+                            <td class="details" tabindex="0" contenteditable="false"></td>
+                            <td class="empty-column"></td>
+                            <td class="amount" tabindex="0" contenteditable="false">{{last_income|floatformat:2}}</td>
+                        </tr>
+                        <tr class="total-rows">
+                            <td class="action"></td>
+                            <td class="year" tabindex="0" contenteditable="false"></td>
+                            <td class="month" tabindex="0" contenteditable="false"></td>
+                            <td class="day" tabindex="0" contenteditable="false"></td>
+                            <td class="details" tabindex="0" contenteditable="false"></td>
+                            <td class="empty-column"></td>
+                            <td class="amount" tabindex="0" contenteditable="false" style="background: #e45353">{{total|floatformat:2}}</td>
+                        </tr>
+                        <tr class="empty-row">
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="journal not-budget cpj">
+                <table>
+                    <thead>
+                        <tr class="header-rows">
+                            <td class="action"></td>
+                            <td class="year">Year</td>
+                            <td class="month">Month</td>
+                            <td class="day">Day</td>
+                            <td class="details">Details</td>
+                            <td class="empty-column"></td>
+                            <td class="amount">Amount</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in journal %}
+                            {% if i.journal == 'cpj' %}
+                                {% if i.is_new == 1 %}
+                                    <tr class="add-rows">
+                                        <td class="action">+</td>
+                                        <td class="year" tabindex="0" contenteditable="true">{{i.prev|date:"Y"}}</td>
+                                        <td class="month" tabindex="0" contenteditable="true">{{i.prev|date:"m"}}</td>
+                                        <td class="day" tabindex="0" contenteditable="true">{{i.prev|date:"d"}}</td>
+                                        <td class="details" tabindex="0" contenteditable="true"></td>
+                                        <td class="empty-column"></td>
+                                        <td class="amount" tabindex="0" contenteditable="true"></td>
+                                    </tr>
+                                    <tr class="total-rows">
+                                        <td class="action"></td>
+                                        <td class="year" tabindex="0" contenteditable="false"></td>
+                                        <td class="month" tabindex="0" contenteditable="false"></td>
+                                        <td class="day" tabindex="0" contenteditable="false"></td>
+                                        <td class="details" tabindex="0" contenteditable="false"></td>
+                                        <td class="empty-column"></td>
+                                        <td class="amount" tabindex="0" contenteditable="false">{{i.expenses|floatformat:2}}</td>
+                                    </tr>
+                                    <tr class="empty-row">
+                                        <td></td>
+                                    </tr>
+                                {% endif %}
+                                <tr class="main-rows" id="{{i.journal_id}}">
+                                    <td class="action">--</td>
+                                    <td class="year" tabindex="0" contenteditable="true">{{i.date|date:"Y"}}</td>
+                                    <td class="month" tabindex="0" contenteditable="true">{{i.date|date:"m"}}</td>
+                                    <td class="day" tabindex="0" contenteditable="true">{{i.date|date:"d"}}</td>
+                                    <td class="details" tabindex="0" contenteditable="true">{{i.details}}</td>
+                                    <td class="empty-column"></td>
+                                    <td class="amount" tabindex="0" contenteditable="true">{{i.amount|floatformat:2}}</td>
+                                </tr>
+                                
+                            {% endif %}
+                            
+                        {% endfor %}
+                        
+                        
+                        <tr class="add-rows">
+                            <td class="action">+</td>
+                            <td class="year" tabindex="0" contenteditable="true">{% now "Y" %}</td>
+                            <td class="month" tabindex="0" contenteditable="true">{% now "m" %}</td>
+                            <td class="day" tabindex="0" contenteditable="true">{% now "d" %}</td>
+                            <td class="details" tabindex="0" contenteditable="true"></td>
+                            <td class="empty-column"></td>
+                            <td class="amount" tabindex="0" contenteditable="true"></td>
+                        </tr>
+                        <tr class="total-rows">
+                            <td class="action"></td>
+                            <td class="year" tabindex="0" contenteditable="false"></td>
+                            <td class="month" tabindex="0" contenteditable="false"></td>
+                            <td class="day" tabindex="0" contenteditable="false"></td>
+                            <td class="details" tabindex="0" contenteditable="false"></td>
+                            <td class="empty-column"></td>
+                            <td class="amount" tabindex="0" contenteditable="false">{{last_expenses|floatformat:2}}</td>
+                        </tr>
+                        <tr class="total-rows">
+                            <td class="action"></td>
+                            <td class="year" tabindex="0" contenteditable="false"></td>
+                            <td class="month" tabindex="0" contenteditable="false"></td>
+                            <td class="day" tabindex="0" contenteditable="false"></td>
+                            <td class="details" tabindex="0" contenteditable="false"></td>
+                            <td class="empty-column"></td>
+                            <td class="amount" tabindex="0" contenteditable="false" style="background: #e45353">{{total|floatformat:2}}</td>
+                        </tr>
+                        <tr class="empty-row">
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="main-right">
+            <!-- <div class="account-values-container">
+                <ul class="account-values">
+                    <li>
+                        <span class="material-symbols-outlined">more_vert</span>
+                        <img src="images/icons/file-invoice-dollar.svg" alt="">
+                        <span>ABSA banking made easey with ABSA</span><br>
+                        <h3>ABSA</h3>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined">more_vert</span>
+                        <img src="images/icons/stats.svg" alt=""><br>
+                        <span>Capitec banking made easey with Capitec</span><br>
+                        <h3>Capitec</h3>
+                    </li>
+
+
+                </ul>
+            </div><br><br> -->
+            <nav class="activities_nav">
+                <li><button class="chosen-nav">Favourite</button></li>
+                <li><button>Categories</button></li>
+            </nav>
+            <br>
+            <hr><br><br>
+            <div class="recent-activities">
+                <h3>Quick add to the chosen row</h3>
+                <p>Last used: 02 June 2024</p>
+                <ul class="recent-list">
+                    <li>
+                        <div class="recent-icon"><img src="{% static "images/icons/apps.svg" %}" alt=""></div>
+                        <div class="recent-list-container">
+                            <p>Bossman</p>
+                            <span>Salary</span>
+                        </div>
+                        <strong>$20,000</strong>
+                    </li>
+                    <li>
+                        <div class="recent-icon"><img src="{% static "images/icons/file-invoice-dollar.svg" %}" alt=""></div>
+                        <div class="recent-list-container">
+                            <p>Bossman</p>
+                            <span>Salary</span>
+                        </div>
+                        <strong>$20,000</strong>
+                    </li>
+                    <li>
+                        <div class="recent-icon"><img src="{% static "images/icons/file-invoice-dollar.svg" %}" alt=""></div>
+                        <div class="recent-list-container">
+                            <p>Bossman</p>
+                            <span>Salary</span>
+                        </div>
+                        <strong>$20,000</strong>
+                    </li>
+                </ul>
+            </div>
+            <div class="categories not-budget">
+                <h3>Latests used categories</h3>
+                <p>Last used: 02 June 2024</p>
+                <ul class="recent-list">
+                    <li>
+                        <div class="recent-icon"><img src="{% static "images/icons/apps.svg" %}" alt=""></div>
+                        <div class="recent-list-container">
+                            <p>Food</p>
+                            <span>Day to day food that I eat excluding snacks</span>
+                        </div>
+                        <strong>$20,000</strong>
+                    </li>
+                    <li>
+                        <div class="recent-icon"><img src="{% static "images/icons/file-invoice-dollar.svg" %}" alt=""></div>
+                        <div class="recent-list-container">
+                            <p>Sweets</p>
+                            <span>Sugary treats that I give myself</span>
+                        </div>
+                        <strong>$20,000</strong>
+                    </li>
+                    <li>
+                        <div class="recent-icon"><img src="{% static "images/icons/file-invoice-dollar.svg" %}" alt=""></div>
+                        <div class="recent-list-container">
+                            <p>Restaurant</p>
+                            <span>When I eat food yet I don't need to spend that money. I'm just treating myself</span>
+                        </div>
+                        <strong>$20,000</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <script src="{% static "js/journal.js" %}"></script>
+    <script>
+
+document.querySelectorAll(".action").forEach(object => {
+    object.addEventListener('click', function() {
+        check_add(object.parentElement)
+    });
+});
+function check_add(tr){
+    console.log(tr)
+    $.ajax({
+        url: '{% url "add_journal" %}',
+        type: 'POST',
+        dataType: 'text',
+        data: { 
+            journal: tr.classList[2], 
+            date: tr.querySelector(".year").textContent + "/" + tr.querySelector(".month").textContent + "/" + tr.querySelector(".day").textContent,
+            details: tr.querySelector(".details").textContent,
+            amount: tr.querySelector(".amount").textContent,
+            category_id: null,
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+        },
+        success: function(response) {
+            console.log(response);
+            if(response == "Success"){
+                alert(response)
+            }
+            else {
+                alert("Connection error: Please refresh the page and insert that again")
+            }
+            new_tr = document.createElement("tr");
+            new_tr.classList.add("main-rows");
+            new_tr.innerHTML = '<td class="action">--</td><td class="year" tabindex="0" contenteditable="true">' + tr.querySelector(".year").textContent + '</td><td class="month" tabindex="0" contenteditable="true">' + tr.querySelector(".month").textContent + '</td><td class="day" tabindex="0" contenteditable="true">' + tr.querySelector(".day").textContent + '</td><td class="details" tabindex="0" contenteditable="true">' + tr.querySelector(".details").textContent +'</td><td class="empty-column"></td><td class="amount" tabindex="0" contenteditable="true">' + tr.querySelector(".amount").textContent + '</td>'
+
+            let string = document.createElement('tbody');
+            let tbody = document.querySelector("tbody");
+            tbody.querySelectorAll("tr").forEach(object => {
+
+            });
+        },
+        error: function(xhr, status, error) {
+            console.log('Error:', error);
+        }
+    });
+}
+    </script>
+{% endblock content %}

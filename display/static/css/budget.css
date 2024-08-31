@@ -1,0 +1,232 @@
+#main {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 10%;
+    position: relative;
+    top: 120px;
+}
+
+.main-left {
+    width: 60%;
+    height: 83vh;
+    overflow-y: auto;
+}
+
+.main-left::-webkit-scrollbar {
+    display: none;
+}
+
+.main-right {
+    width: 40%;
+}
+
+.account-values {
+    display: flex;
+    justify-content: left;
+    max-width: 80%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 10px;
+    background: linear-gradient(#C6F28F30, #BA8FF230);
+}
+
+.account-values::-webkit-scrollbar {
+    height: 20px;
+    display: none;
+}
+
+.account-values li {
+    width: 150px;
+    margin-right: 35px;
+    flex-shrink: 0;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 20px;
+    color: #ddd;
+    background: linear-gradient(to left, #7db9e880, #C6F28F30)
+}
+
+.account-values h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    /* border-bottom: 1px solid white; */
+}
+
+.account-values img {
+    width: 30%;
+    margin-bottom: 10px;
+    float: inline-start;
+    margin-right: 20px;
+}
+
+.account-values span {
+    float: right;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.account-values-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-values-container button {
+    font-size: 3rem;
+    margin-left: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* --- Recent List --- */
+
+.recent-activities {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.recent-list li {
+    cursor: pointer;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    width: 90%;
+    text-align: left;
+}
+
+.recent-icon {
+    width: 50px;
+    background: #015e5c;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.recent-list-container p {
+    font-size: 1.2rem;
+}
+
+.recent-list-container span {
+    font-size: 0.9rem;
+    color: #ddd;
+
+}
+
+/* --- Budget Navigation ---- */
+.budget_nav {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.budget_nav li {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.budget_nav button {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    color: #ddd;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.budget_nav button:hover {
+    border-bottom: 1px solid gold;
+    transition: all 0.5s ease;
+}
+
+.budget_nav .chosen-nav {
+    color: gold;
+}
+
+/* --- Budget Overlook --- */
+.budget-overlook {
+    display: flex;
+    justify-content: start;
+}
+
+.chart-container {
+    margin-top: 50px;
+    width: 50%;
+    max-width: 600px;
+}
+
+.overlook-container label {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #ddd;
+}
+
+.overlook-container input {
+    background: transparent;
+    border: none;
+    border-top: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.not-budget {
+    display: none;
+}
+
+/* --- Budget Income/Expenses --- */
+.budget-income h4 {
+    margin-left: 4%;
+}
+
+.budget-income hr {
+    width: 97%;
+    margin-left: 3%;
+}
+
+.budget-income tr {
+    width: 200px;
+    gap: none;
+    font-weight: 300;
+
+}
+
+.budget-income td {
+    padding: 8px;
+    width: 30%;
+    cursor: text;
+}
+
+.main-rows td {
+    background: #C6F28F30;
+    border: 1px solid #ddd;
+}
+
+.add-rows td {
+    background: #BA8FF230;
+    border: 1px solid #ddd;
+}
+
+.total-rows td {
+    background: black;
+    color: gold;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.main-rows .amount,
+.total-rows .amount,
+.add-rows .amount {
+    text-align: right;
+}

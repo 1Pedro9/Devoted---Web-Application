@@ -1,0 +1,250 @@
+#main {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 10%;
+    position: relative;
+    top: 120px;
+}
+
+.main-left {
+    width: 68%;
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.main-left::-webkit-scrollbar {
+    display: none;
+}
+
+.main-right {
+    width: 30%;
+}
+
+.account-values {
+    display: flex;
+    justify-content: left;
+    max-width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 10px;
+    background: linear-gradient(#C6F28F30, #BA8FF230);
+    margin-right: 5%;
+}
+
+.account-values::-webkit-scrollbar {
+    height: 20px;
+    display: none;
+}
+
+.account-values li {
+    width: 150px;
+    margin-right: 35px;
+    flex-shrink: 0;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 20px;
+    color: #ddd;
+    background: linear-gradient(to left, #7db9e880, #C6F28F30)
+}
+
+.account-values h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    /* border-bottom: 1px solid white; */
+}
+
+.account-values img {
+    width: 30%;
+    margin-bottom: 10px;
+    float: inline-start;
+    margin-right: 20px;
+}
+
+.account-values span {
+    float: right;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.account-values-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-values-container button {
+    font-size: 3rem;
+    margin-left: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* --- Recent List --- */
+
+.recent-activities {
+    width: 100%;
+}
+
+.recent-list li {
+    cursor: pointer;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    width: 90%;
+    text-align: left;
+}
+
+.recent-icon {
+    width: 50px;
+    background: #015e5c;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.recent-list-container p {
+    font-size: 1.2rem;
+}
+
+.recent-list-container span {
+    font-size: 0.9rem;
+    color: #ddd;
+
+}
+
+/* --- Budget Navigation ---- */
+.budget_nav,
+.activities_nav {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.budget_nav li,
+.activities_nav li {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.budget_nav button,
+.activities_nav button {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    color: #ddd;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.budget_nav button:hover,
+.activities_nav button:hover {
+    border-bottom: 1px solid gold;
+    transition: all 0.5s ease;
+}
+
+.budget_nav .chosen-nav,
+.activities_nav .chosen-nav {
+    color: gold;
+}
+
+.not-budget {
+    display: none;
+}
+
+/* --- Budget Income/Expenses --- */
+
+.journal h4 {
+    margin-left: 4%;
+}
+
+.journal hr {
+    width: 97%;
+    margin-left: 3%;
+}
+
+.journal tr,
+.gl tr {
+    width: 200px;
+    gap: none;
+    font-weight: 300;
+
+}
+
+.header-rows {
+    color: rgb(152, 235, 171);
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.journal td,
+.gl td {
+    padding: 8px;
+    width: fit-content;
+    cursor: text;
+    text-align: left;
+}
+
+.journal .details {
+    min-width: 300px;
+}
+
+.gl .details {
+    min-width: 150px;
+}
+
+.journal .amount {
+    min-width: 200px;
+}
+
+.gl .amount {
+    min-width: 100px;
+}
+
+.main-rows td {
+    background: #C6F28F30;
+    border: 1px solid #ddd;
+}
+
+.add-rows td {
+    background: #BA8FF230;
+    border: 1px solid #ddd;
+}
+
+.total-rows .amount {
+    background: black;
+    color: gold;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border: 1px solid white;
+}
+
+.journal .empty-column,
+.gl .empty-column {
+    width: 40px;
+    background: transparent;
+    border: none;
+}
+
+.main-rows .amount,
+.total-rows .amount,
+.add-rows .amount {
+    text-align: right;
+}
+
+.empty-row {
+    color: transparent;
+}
+
+.action {
+    cursor: pointer;
+}

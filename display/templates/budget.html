@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static "css/budget.css" %}">{% endblock styles %}
+{% block content %}
+    <main id="main">
+        <div class="main-left">
+            <nav class="budget_nav">
+                <li><button class="chosen-nav">Overlook</button></li>
+                <li><button>Income</button></li>
+                <li><button>Expenses</button></li>
+                <li><button>All together</button></li>
+            </nav><br>
+            <hr><br><br>
+            <h2>Budget #2 - Monthly Budget</h2>
+            <div class="budget-overlook">
+                <div class="chart-container">
+                    <canvas id="doughnutChart"></canvas>
+                </div>
+                <div class="overlook-container">
+                    <label for="">Income pm</label><br>
+                    <input type="text" value="$80,000" readonly><br>
+                    <label for="">Expenses pm</label><br>
+                    <input type="text" value="$20,000" readonly><br>
+                    <label for="">Gross Profit</label><br>
+                    <input type="text" value="$20,000" readonly>
+                </div>
+            </div>
+            <div class="budget-income not-budget">
+                <br>
+                <h4>Income</h4>
+                <hr>
+
+                <table>
+                    <thead>
+                        <tr class="header">
+                            <td class="action"></td>
+                            <td class="details">Details</td>
+                            <td class="date">Date [Default: 2024/07/28]</td>
+                            <td class="amount">Amount [R]</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="main-rows">
+                            <td class="action"></td>
+                            <td class="details" tabindex="0" contenteditable="true">Devoted</td>
+                            <td class="date" tabindex="0" contenteditable="true">2024/07/28</td>
+                            <td class="amount" tabindex="0" contenteditable="true">80,000</td>
+                        </tr>
+                        <tr class="main-rows">
+                            <td class="action"></td>
+                            <td class="details" tabindex="0" contenteditable="true">Devoted</td>
+                            <td class="date" tabindex="0" contenteditable="true">2024/07/28</td>
+                            <td class="amount" tabindex="0" contenteditable="true">20,000</td>
+                        </tr>
+                        <tr class="main-rows">
+                            <td class="action"></td>
+                            <td class="details" tabindex="0" contenteditable="true">Devoted</td>
+                            <td class="date" tabindex="0" contenteditable="true">2024/07/28</td>
+                            <td class="amount" tabindex="0" contenteditable="true">20,000</td>
+                        </tr>
+                        <tr class="add-rows">
+                            <td class="action">+</td>
+                            <td class="details" tabindex="0" contenteditable="true"></td>
+                            <td class="date" tabindex="0" contenteditable="true">2024/07/28</td>
+                            <td class="amount" tabindex="0" contenteditable="true"></td>
+                        </tr>
+                        <tr class="total-rows">
+                            <td class="action"></td>
+                            <td class="details" tabindex="0" contenteditable="false"></td>
+                            <td class="date" tabindex="0" contenteditable="false"></td>
+                            <td class="amount" tabindex="0" contenteditable="false">60,000.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="budget-income budget-expenses not-budget">
+                <br>
+                <h4>Expenses</h4>
+                <hr>
+
+                <table>
+                    <thead>
+                        <tr class="header">
+                            <td class="action"></td>
+                            <td class="details">Details</td>
+                            <td class="date">Date [Default: 2024/07/28]</td>
+                            <td class="amount">Amount [R]</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="main-rows">
+                            <td class="action"></td>
+                            <td class="details" tabindex="0" contenteditable="true">Devoted</td>
+                            <td class="date" tabindex="0" contenteditable="true">2024/07/28</td>
+                            <td class="amount" tabindex="0" contenteditable="true">20,000</td>
+                        </tr>
+                        <tr class="main-rows">
+                            <td class="action"></td>
+                            <td class="details" tabindex="0" contenteditable="true">Devoted</td>
+                            <td class="date" tabindex="0" contenteditable="true">2024/07/28</td>
+                            <td class="amount" tabindex="0" contenteditable="true">20,000</td>
+                        </tr>
+                        <tr class="main-rows">
+                            <td class="action"></td>
+                            <td class="details" tabindex="0" contenteditable="true">Devoted</td>
+                            <td class="date" tabindex="0" contenteditable="true">2024/07/28</td>
+                            <td class="amount" tabindex="0" contenteditable="true">20,000</td>
+                        </tr>
+                        <tr class="add-rows">
+                            <td class="action">+</td>
+                            <td class="details" tabindex="0" contenteditable="true"></td>
+                            <td class="date" tabindex="0" contenteditable="true">2024/07/28</td>
+                            <td class="amount" tabindex="0" contenteditable="true"></td>
+                        </tr>
+                        <tr class="total-rows">
+                            <td class="action"></td>
+                            <td class="details" tabindex="0" contenteditable="false"></td>
+                            <td class="date" tabindex="0" contenteditable="false"></td>
+                            <td class="amount" tabindex="0" contenteditable="false">60,000.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="main-right">
+            <div class="account-values-container">
+                <ul class="account-values">
+                    <li>
+                        <span class="material-symbols-outlined">more_vert</span>
+                        <img src="{% static "images/icons/file-invoice-dollar.svg" %}" alt="">
+                        <span>A monthly budget to help you with you expenses</span><br>
+                        <h3>Budget #1</h3>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined">more_vert</span>
+                        <img src="{% static "images/icons/stats.svg" %}" alt=""><br>
+                        <span>A monthly budget to help you with you expenses</span><br>
+                        <h3>Budget #2</h3>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined">more_vert</span>
+                        <img src="{% static "images/icons/chart-pie-alt.svg" %}" alt="">
+                        <span>A monthly budget to help you with you expenses</span><br>
+                        <h3>Budget #3</h3>
+                    </li>
+
+                    <!-- TODO: Add a li where the img is a graph with a plus on that will allow the user to add an account -->
+                </ul>
+            </div><br><br>
+            <div class="recent-activities">
+                <h3>Create a new budget</h3>
+                <p>Last created: 02 June 2024</p>
+                <ul class="recent-list">
+                    <li>
+                        <div class="recent-icon"><img src="{% static "images/icons/apps.svg" %}" alt=""></div>
+                        <div class="recent-list-container">
+                            <p>Monthly Budget</p>
+                            <span>Help for the month's planning</span>
+                        </div>
+                        <strong>(1)</strong>
+                    </li>
+                    <li>
+                        <div class="recent-icon"><img src="{% static "images/icons/file-invoice-dollar.svg" %}" alt=""></div>
+                        <div class="recent-list-container">
+                            <p>Yearly Budget</p>
+                            <span>Yearly planning, what is your new year resolution?</span>
+                        </div>
+                        <strong>(2)</strong>
+                    </li>
+                    <li>
+                        <div class="recent-icon"><img src="{% static "images/icons/file-invoice-dollar.svg" %}" alt=""></div>
+                        <div class="recent-list-container">
+                            <p>Holiday Budget</p>
+                            <span>Help plan that break you deserve</span>
+                        </div>
+                        <strong>(3)</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <script src="{% static "js/budget.js" %}"></script>
+{% endblock content %}

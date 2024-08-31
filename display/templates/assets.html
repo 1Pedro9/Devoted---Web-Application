@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static "css/assets.css" %}">{% endblock styles %}
+{% block content %}
+<main id="main">
+    <div class="main-left">
+        <nav class="budget_nav">
+            <li><button class="chosen-nav">Stocks</button></li>
+            <li><button>Crypto</button></li>
+            <li><button>Real Estate</button></li>
+        </nav><br>
+        <hr><br><br>
+        <div class="stocks">
+            <ul class="stock-lists">
+                <li>Watchlist</li>
+                <li>SA's finest</li>
+                <li>Stocks Owned</li>
+                <li
+                    style="background: linear-gradient(to right, rgba(244, 114, 138, 0.4), rgb(107, 244, 173, 0.4));">
+                    + Add
+                    List
+                </li>
+            </ul>
+            <ul class="stock-list">
+
+            </ul>
+        </div>
+        <div class="crypto not-budget">
+            <ul class="stock-lists">
+                <li>Watchlist</li>
+                <li>SA's finest</li>
+                <li>Crypto Owned</li>
+                <li
+                    style="background: linear-gradient(to right, rgba(244, 114, 138, 0.4), rgb(107, 244, 173, 0.4));">
+                    + Add
+                    List
+                </li>
+            </ul>
+            <ul class="stock-list">
+
+            </ul>
+        </div>
+        <div class="realestate not-budget">
+            <ul class="stock-lists">
+                <li>Johannesburg House</li>
+                <li
+                    style="background: linear-gradient(to right, rgba(244, 114, 138, 0.4), rgb(107, 244, 173, 0.4));">
+                    + Add
+                    Estate
+                </li>
+            </ul>
+            <ul class="stock-list">
+
+            </ul>
+        </div>
+    </div>
+    <div class="main-right">
+        <nav class="budget_nav">
+            <li><button class="chosen-nav">Overview</button></li>
+            <li><button>Add</button></li>
+            <li><button>Edit</button></li>
+        </nav><br>
+        <div class="overview">
+            <h3>JSE: REM</h3><br>
+            <label for="">Current Price</label><br><br>
+            <input type="text" value="ZAC 14,400.00" readonly><br><br>
+            <div class="watch">
+                <label for="">At what price are you looking to buy?</label><br><br><br><br>
+                <input type="number" value="0">
+            </div>
+            <div class="container">
+                <button style="background: rgba(247, 103, 103, 0.5);">Remove</button>
+                <button>Save</button>
+            </div>
+        </div>
+        <div class="add not-budget">
+            <h3>Add a stock</h3><br>
+            <label for="">Stock Exchange: Stock Symbol ex. JSE: REM</label><br><br><br><br>
+            <input type="text" value=""><br><br>
+            <div class="watch">
+                <label for="">At what price are you looking to buy?</label><br><br><br><br>
+                <input type="number" value="0">
+            </div>
+            <div class="container">
+                <button style="background: rgba(247, 103, 103, 0.5);">Remove</button>
+                <button>Save</button>
+            </div>
+        </div>
+        <div class="edit not-budget">
+            <h3>Edit stock</h3><br>
+            <div class="edit-container">
+                <button>I sold</button>
+                <button>I bought</button>
+            </div><br><br>
+            <input type="number" placeholder="At what price?"><br><br>
+            <button style="width: 100%; background: #9db2f8ad; margin: 0;">Save</button>
+        </div>
+
+    </div>
+</main>
+<script src="{% static "js/assets.js" %}"></script>
+{% endblock content %}
+    

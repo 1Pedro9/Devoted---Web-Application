@@ -1,0 +1,35 @@
+#main {
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#main>div {
+    width: 25%;
+}
+
+li {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+input[type="text"]::placeholder {
+    color: rgb(215, 247, 247);
+}

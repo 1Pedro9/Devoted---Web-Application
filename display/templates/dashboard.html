@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static "css/dashboard.css" %}">{% endblock styles %}
+{% block content %}
+<main id="main">
+    <div class="main-left">
+        <div class="account-values-container">
+            <ul class="account-values">
+                <li style="background: linear-gradient(to left, #C6F28F30, #BA8FF230)">
+                    <span class="material-symbols-outlined">more_vert</span>
+                    <img src="{% static "images/icons/file-invoice-dollar.svg" %}" alt="">
+                    <span>All your banking accounts put together</span><br>
+                    <h3>R{{total}}</h3>
+                </li>
+                <li>
+                    <span class="material-symbols-outlined">more_vert</span>
+                    <img src="{% static "images/icons/stats.svg" %}" alt=""><br>
+                    <span>Your stock portfolio is looking kinda bussin</span><br><br>
+                    <h3>R10,000.00</h3>
+                    <h3>$500.00</h3>
+                </li>
+                <li>
+                    <span class="material-symbols-outlined">more_vert</span>
+                    <img src="{% static "images/icons/chart-pie-alt.svg" %}" alt="">
+                    <span>Look at that real estate. WOW!</span><br>
+                    <h3>R20,000.00</h3>
+                </li>
+
+                <!-- TODO: Add a li where the img is a graph with a plus on that will allow the user to add an account -->
+            </ul>
+            <!-- <button>
+                >
+            </button> -->
+        </div>
+        <div class="total-account">
+            <span>Total Account Value</span>
+            <h4>ZAR {{total}}</h4>
+            <div class="graph-container">
+                <ul class="amounts">
+                    <li style="color: transparent;">.</li>
+                    <li>R50,000</li>
+                    <li>R40,000</li>
+                    <li>R30,000</li>
+                    <li>R20,000</li>
+                    <li>R10,000</li>
+                    <li>R0</li>
+                </ul>
+                <canvas class="graph_total" id="barGraph"></canvas>
+            </div>
+            <ul class="timeline">
+                <li>Jan</li>
+                <li>Feb</li>
+                <li>Mar</li>
+                <li>Apr</li>
+                <li>May</li>
+                <li>June</li>
+                <li>July</li>
+                <li>Aug</li>
+                <li>Sept</li>
+                <li>Oct</li>
+                <li>Nov</li>
+                <li>Dec</li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="main-right">
+        <div class="cards">
+            {% for i in plans %}
+                {% if i.count == 0 %}
+                    <div class="credit-card chosen-card" onclick="choose_card(this)" style="background: {{i.color}};">
+                        <div class="credit-card__logo">{{i.plan}} - VISA</div>
+                        <div class="credit-card__number">***3 ***4 ***3 ***8</div>
+                        <div class="credit-card__info">
+                            <div class="credit-card__info__name">{{name}}</div>
+                            <div class="credit-card__info__expiry">12/24</div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="credit-card" onclick="choose_card(this)" style="background: {{i.color}}; left: {{i.left}}px; z-index: {{i.zindex}};">
+                        <div class="credit-card__logo">{{i.plan}} - VISA</div>
+                        <div class="credit-card__number">***3 ***4 ***3 ***8</div>
+                        <div class="credit-card__info">
+                            <div class="credit-card__info__name">{{name}}</div>
+                            <div class="credit-card__info__expiry">12/24</div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            
+        </div>
+        <br><br><br>
+        <div class="recent-activities">
+            <h3>Recent Activites</h3>
+            <p>Last Visited: 02 June 2024</p>
+            <ul class="recent-list">
+                <li>
+                    <div class="recent-icon"><img src="{% static "images/icons/apps.svg" %}" alt=""></div>
+                    <div class="recent-list-container">
+                        <p>Peter Parker</p>
+                        <span>Rent for the month - 2024/07/08</span>
+                    </div>
+                    <strong>$120</strong>
+                </li>
+                <li>
+                    <div class="recent-icon"><img src="{% static "images/icons/file-invoice-dollar.svg" %}" alt=""></div>
+                    <div class="recent-list-container">
+                        <p>Checkers</p>
+                        <span>Food for the month - 2024/07/08</span>
+                    </div>
+                    <strong>($50)</strong>
+                </li>
+                <li>
+                    <div class="recent-icon"><img src="{% static "images/icons/file-invoice-dollar.svg" %}" alt=""></div>
+                    <div class="recent-list-container">
+                        <p>Pick 'n Pay</p>
+                        <span>Food for the month - 2024/07/08</span>
+                    </div>
+                    <strong>($50)</strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<script src="{% static "js/dashboard.js" %}"></script>
+<script>
+    function choose_card(e) {
+        document.querySelectorAll(".credit-card").forEach(object => {
+            object.classList.remove("chosen-card");
+        });
+        e.classList.add("chosen-card");
+    }
+
+</script>
+{% endblock content %}
